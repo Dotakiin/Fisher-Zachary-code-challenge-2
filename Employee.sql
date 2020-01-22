@@ -23,7 +23,7 @@ State varchar(50),
 Country varchar(50)
 )
 go
-insert into Department (Name, Location) VALUES ('Marketing', 'Arlington');
+insert into Department (Name, Location) VALUES ('Mail', 'Arlington');
 insert into Department (Name, Location) values ('IT', 'Arlington');
 insert into Department (Name, Location) values ('Admin', 'Arlington');
 insert into Employee ( FirstName, LastName, SSN, DeptId) values ('Bob', 'Jones', '111223333',2)
@@ -33,6 +33,7 @@ insert into EmpDetails( EmployeeID, Salary, [Address 1], City, State, Country) v
 insert into EmpDetails( EmployeeID, Salary, [Address 1], City, State, Country) values (2, 45000, '3 1st St', 'Arlington', 'Texas', 'United States')
 insert into EmpDetails( EmployeeID, Salary, [Address 1], City, State, Country) values (3, 45000, '5 1st St', 'Arlington', 'Texas', 'United States')
 insert into Employee( FirstName, LastName, SSN, DeptId) values ('Tina', 'Smith', '111223336',1)
+insert into Department (Name, Location) VALUES ('Marketing', 'Arlington');
 insert into EmpDetails( EmployeeID, Salary, [Address 1], City, State, Country) values (4, 45000, '7 1st St', 'Arlington', 'Texas', 'United States')
 go
 Select * from Employee join Department on Employee.DeptId = Department.ID where Department.Name = 'Marketing'
@@ -43,3 +44,10 @@ Select Department.Name as 'Department Name', Count(*) as 'Total Employees' from 
 go
 
 update EmpDetails set Salary = 90000 where EmployeeID = (select ID from Employee where FirstName = 'Tina' and LastName = 'Smith')
+
+
+--drop table EmpDetails
+--go
+--drop table Employee
+--go
+--drop table Department
